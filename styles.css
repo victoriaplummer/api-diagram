@@ -144,7 +144,7 @@
 /* Specific card positioning */
 [data-section="authorization"] {
   grid-column: 1;
-  margin-top: 197px;
+  margin-top: 181px;
   margin-bottom: 40px;
 }
 
@@ -196,7 +196,7 @@
 
 [data-section="user-accounts"] {
   grid-column: 3;
-  margin-top: 175px;
+  margin-top: 157px;
 }
 
 [data-section="ecommerce"] {
