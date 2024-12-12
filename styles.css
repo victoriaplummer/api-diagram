@@ -1,0 +1,447 @@
+:root {
+  --api-gradient-start: #9effed;
+  --api-gradient-mid: var(--blue-400);
+  --api-gradient-end: var(--blue-500);
+
+  --blue-900: #001535;
+  --blue-800: #002a6a;
+  --blue-700: #00409f;
+  --blue-600: #0056d4;
+  --blue-500: #146ef5;
+  --blue-400: #3b89ff;
+  --blue-300: #6ca7ff;
+  --blue-200: #9dc4ff;
+  --blue-100: #cee2ff;
+}
+
+@font-face {
+  font-family: "WFVisualSans";
+  src: url("../WFVisualSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "WFVisualSans";
+  src: url("../WFVisualSans-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+.api-diagram-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.api-diagram-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  gap: 100px;
+  position: relative;
+  padding: 40px;
+  min-height: 800px;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Column styling */
+[data-column="1"] {
+  grid-column: 1;
+}
+[data-column="2"] {
+  grid-column: 2;
+}
+[data-column="3"] {
+  grid-column: 3;
+}
+[data-column="4"] {
+  grid-column: 4;
+}
+
+.api-card {
+  position: relative;
+  width: 287px;
+  margin-bottom: 20px;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+/* Glow effect */
+.api-card::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  top: -2px;
+  bottom: -2px;
+  background: linear-gradient(100.51deg, #4353ff 1.4%, #9effed 104.29%);
+  opacity: 0.7;
+  filter: blur(5px);
+  border-radius: 12px;
+  z-index: -1;
+}
+
+/* White background container */
+.api-card-content {
+  position: relative;
+  padding: 18px 24px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: inset 0px 0px 4px rgba(67, 83, 255, 0.2);
+}
+
+.api-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px 0;
+  font-family: "WFVisualSans", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.api-card p {
+  margin: 0 0 15px 0;
+  font-family: "WFVisualSans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  color: #666;
+}
+
+/* Update hover states */
+.api-card:hover {
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.api-card:hover .api-card-content {
+  background: var(--blue-500);
+}
+
+.api-card:hover h3,
+.api-card:hover .card-icon {
+  color: white;
+}
+
+.api-card:hover .card-icon path,
+.api-card:hover .card-icon circle,
+.api-card:hover .card-icon rect,
+.api-card:hover .card-icon line {
+  fill: white;
+  stroke: white;
+}
+
+.api-card:hover p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Specific card positioning */
+[data-section="authorization"] {
+  grid-column: 1;
+  margin-top: 197px;
+  margin-bottom: 40px;
+}
+
+[data-section="sites"] {
+  grid-column: 1;
+  margin-top: 100px;
+}
+
+/* Column 2 explicit ordering */
+[data-section="pages"] {
+  grid-column: 2;
+}
+
+[data-section="custom-code"] {
+  grid-column: 2;
+  margin-top: 20px;
+}
+
+[data-section="assets"] {
+  grid-column: 2;
+  margin-top: 20px;
+}
+
+[data-section="dynamic-content"] {
+  grid-column: 2;
+  margin-top: 20px;
+}
+
+[data-section="forms"] {
+  grid-column: 2;
+  margin-top: 20px;
+}
+
+[data-section="webhooks"] {
+  grid-column: 2;
+  margin-top: 20px;
+}
+
+[data-section="token"] {
+  grid-column: 2;
+  margin-top: 20px;
+}
+
+/* Column 3 positioning - adjusted for better alignment */
+[data-section="cms"] {
+  grid-column: 3;
+  margin-top: 140px;
+}
+
+[data-section="user-accounts"] {
+  grid-column: 3;
+  margin-top: 175px;
+}
+
+[data-section="ecommerce"] {
+  grid-column: 3;
+  margin-top: 227px;
+}
+
+/* Column 4 - brought up higher overall */
+/* CMS group */
+[data-section="collections"] {
+  grid-column: 4;
+  margin-top: 60px;
+}
+
+[data-section="items"] {
+  grid-column: 4;
+  margin-top: 20px;
+}
+
+/* User Accounts group */
+[data-section="users"] {
+  grid-column: 4;
+  margin-top: 60px;
+}
+
+[data-section="access-groups"] {
+  grid-column: 4;
+  margin-top: 20px;
+}
+
+/* Ecommerce group */
+[data-section="ecommerce-settings"] {
+  grid-column: 4;
+  margin-top: 60px;
+}
+
+[data-section="products"] {
+  grid-column: 4;
+  margin-top: 20px;
+}
+
+[data-section="orders"] {
+  grid-column: 4;
+  margin-top: 20px;
+}
+
+[data-section="inventory"] {
+  grid-column: 4;
+  margin-top: 20px;
+}
+
+.connections-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Add styles for SVG icons */
+.card-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-icon .icon-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.card-icon .icon-svg path,
+.card-icon .icon-svg circle,
+.card-icon .icon-svg rect {
+  transition: all 0.3s ease;
+  fill: currentColor;
+}
+
+.api-card:hover .card-icon .icon-svg path,
+.api-card:hover .card-icon .icon-svg circle,
+.api-card:hover .card-icon .icon-svg rect {
+  fill: white;
+}
+
+.api-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 21, 53, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.api-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.api-modal {
+  background: linear-gradient(135deg, #ffffff, #f0f4ff);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 40px;
+  position: relative;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  font-family: "WFVisualSans", sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.api-modal-overlay.active .api-modal {
+  transform: translateY(0);
+}
+
+.api-modal-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  transition: transform 0.2s ease;
+}
+
+.api-modal-close:hover {
+  transform: scale(1.1);
+}
+
+.api-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--blue-100);
+}
+
+.api-modal-header h2 {
+  font-family: "WFVisualSans", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  margin: 0;
+  color: var(--blue-900);
+}
+
+.api-modal-description {
+  color: var(--blue-900);
+  margin-bottom: 15px;
+  font-size: 18px;
+  line-height: 1.6;
+  overflow: hidden;
+  font-family: "WFVisualSans", sans-serif;
+}
+
+.api-modal-guide-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, var(--blue-500), var(--blue-600));
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: "WFVisualSans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 16px;
+  margin-bottom: 32px;
+  transition: all 0.3s ease;
+  float: right;
+  clear: both;
+  box-shadow: 0 2px 8px rgba(20, 110, 245, 0.2);
+}
+
+.api-modal-guide-button::after {
+  content: "→";
+  transition: transform 0.2s ease;
+}
+
+.api-modal-guide-button:hover {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-700));
+  box-shadow: 0 4px 12px rgba(20, 110, 245, 0.3);
+  transform: translateY(-1px);
+}
+
+.api-modal-guide-button:hover::after {
+  transform: translateX(4px);
+}
+
+.api-endpoint-category {
+  margin-bottom: 32px;
+}
+
+.api-endpoint-category h3 {
+  font-family: "WFVisualSans", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  margin: 0 0 12px 0;
+  color: var(--blue-900);
+}
+
+.api-endpoint-category p {
+  color: var(--blue-800);
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.api-endpoints-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.api-endpoints-table th,
+.api-endpoints-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--blue-100);
+}
+
+.api-endpoints-table th {
+  font-weight: 600;
+  color: var(--blue-900);
+}
+
+.api-endpoints-table td {
+  color: var(--blue-800);
+}
+
+.api-endpoints-table tr:hover {
+  background: var(--blue-100);
+  cursor: pointer;
+}
