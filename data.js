@@ -287,7 +287,7 @@ export const apiCards = [
             {
               name: "Create asset metadata",
               description:
-                "Create metadata for a specific asset. [To upload an asset, you must first create its metadata record, then upload the asset file itself to AWS.](https://developers.webflow.com/data/docs/working-with-assets",
+                "Create metadata for a specific asset. [To upload an asset, you must first create its metadata record, then upload the asset file itself to AWS.](https://developers.webflow.com/data/docs/working-with-assets)",
               docsLink:
                 "https://developers.webflow.com/data/reference/assets/assets/create-metadata",
             },
