@@ -14,6 +14,40 @@
   --blue-100: #cee2ff;
 }
 
+@media (prefers-color-scheme: dark) {
+  .api-diagram-container {
+    background-color: #000;
+  }
+
+  body {
+    background-color: #000;
+    margin: 0;
+  }
+
+  .api-card {
+    background-color: #333 !important;
+    border: 1px solid #444;
+  }
+
+  .api-card h3,
+  .api-card p {
+    color: #fff;
+  }
+
+  .api-modal {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .api-modal-overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .icon-svg {
+    fill: #fff;
+  }
+}
+
 @font-face {
   font-family: "WFVisualSans";
   src: url("./WFVisualSans-Regular.woff2") format("woff2");
