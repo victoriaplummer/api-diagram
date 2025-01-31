@@ -3,7 +3,27 @@ import * as d3 from "https://cdn.skypack.dev/d3";
 import { apiCards, connections } from "./data.js";
 import MarkdownIt from "https://cdn.skypack.dev/markdown-it";
 
-const md = new MarkdownIt();
+const md = new MarkdownIt({
+  html: true,
+  breaks: true,
+  linkify: true,
+  replaceLink: function (link) {
+    return link;
+  },
+}).use(function (md) {
+  const defaultRender =
+    md.renderer.rules.link_open ||
+    function (tokens, idx, options, env, self) {
+      return self.renderToken(tokens, idx, options);
+    };
+
+  md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+    const token = tokens[idx];
+    token.attrSet("target", "_blank");
+    token.attrSet("rel", "noopener noreferrer");
+    return defaultRender(tokens, idx, options, env, self);
+  };
+});
 
 let svg;
 
@@ -31,7 +51,8 @@ function initApiDiagram() {
         showModal(card);
       };
     } else if (card.docsLink) {
-      cardElement.onclick = () => window.open(card.docsLink, "_blank");
+      cardElement.onclick = () =>
+        window.open(card.docsLink, "_blank", "noopener,noreferrer");
     }
 
     const cardContent = document.createElement("div");
