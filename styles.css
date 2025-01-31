@@ -35,7 +35,7 @@
   }
 
   .api-card-content {
-    background-color: #333 !important;
+    background-color: color(display-p3 0.937 0.933 0.992/0.077) !important;
   }
 
   .api-modal {
